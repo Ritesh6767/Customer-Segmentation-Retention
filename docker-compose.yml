@@ -1,0 +1,52 @@
+version: "3.9"
+
+
+
+services:
+
+  # ── Main Streamlit App ──────────────────────────────────
+  segmentation-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: customer_segmentation
+    ports:
+      - "8501:8501"
+    volumes:
+      # Persist trained models & outputs between container restarts
+      - ./models_saved:/app/models_saved
+      - ./outputs:/app/outputs
+      - ./data:/app/data
+    environment:
+      - PYTHONUNBUFFERED=1
+      - STREAMLIT_SERVER_PORT=8501
+      - STREAMLIT_SERVER_HEADLESS=true
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c",
+             "import urllib.request; urllib.request.urlopen('http://localhost:8501/_stcore/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # ── Train-only one-shot service ──────────────────────────
+  train:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: customer_train
+    command: ["python train.py"]
+    volumes:
+      - ./models_saved:/app/models_saved
+      - ./outputs:/app/outputs
+      - ./data:/app/data
+    environment:
+      - PYTHONUNBUFFERED=1
+    profiles:
+      - train   # only runs with: docker compose --profile train up train
+
+volumes:
+  models_saved:
+  outputs:
+  data:
