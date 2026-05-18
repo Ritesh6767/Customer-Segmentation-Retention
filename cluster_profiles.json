@@ -1,0 +1,34 @@
+{
+  "0": {
+    "age": 46.05,
+    "annual_income": 62131.5,
+    "spending_score": 50.89,
+    "purchase_frequency": 8.97,
+    "avg_order_value": 131.6,
+    "days_since_last_purchase": 34.84,
+    "total_orders": 28.07,
+    "return_rate": 0.14,
+    "loyalty_years": 5.97,
+    "email_open_rate": 0.3,
+    "support_tickets": 1.44,
+    "promo_usage_rate": 0.29,
+    "segment_name": "Budget Shoppers",
+    "size": 2875
+  },
+  "1": {
+    "age": 41.75,
+    "annual_income": 69556.7,
+    "spending_score": 57.25,
+    "purchase_frequency": 13.5,
+    "avg_order_value": 232.36,
+    "days_since_last_purchase": 1.04,
+    "total_orders": 28.25,
+    "return_rate": 0.09,
+    "loyalty_years": 3.44,
+    "email_open_rate": 0.22,
+    "support_tickets": 1.25,
+    "promo_usage_rate": 0.15,
+    "segment_name": "Loyal High-Value",
+    "size": 4
+  }
+}

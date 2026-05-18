@@ -50,6 +50,9 @@ TUNING_PATH   = os.path.join(ROOT, "outputs/tuning_results.csv")
 CLUSTER_CSV   = os.path.join(ROOT, "outputs/customers_clustered.csv")
 OUTPUT_DIR    = os.path.join(ROOT, "outputs")
 
+os.makedirs(os.path.dirname(MODEL_PATH), exist_ok=True)
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+
 SEGMENT_COLORS = {
     -1: "#6c757d", 0: "#4CC9F0", 1: "#F72585", 2: "#FF6B6B",
      3: "#06D6A0", 4: "#FFD166", 5: "#A78BFA", 6: "#FB8500", 7: "#3A86FF",
