@@ -322,7 +322,7 @@ with st.sidebar:
         st.markdown(f"Silhouette: **{m.get('silhouette_score', '–')}**")
 
     st.markdown("---")
-    st.caption("Customer Segmentation & Retention\nCERN Internship Portfolio Project")
+    st.caption("Customer Segmentation & Retention Project")
 
 
 # ─────────────────────────────────────────────────────────
